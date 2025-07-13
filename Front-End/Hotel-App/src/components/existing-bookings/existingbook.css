@@ -1,0 +1,39 @@
+.existingRoomContainer{
+    margin-top: 3rem;
+}
+
+#cancelBooking button{
+  background-color: red;
+  width: 4rem;
+}
+#sn{
+  width: 1.9rem;
+}
+#adults{
+  width: 45px;
+}
+#children{
+  width: 60px;
+}
+#total_guest{
+  width: 50px;
+}
+#booking_id{
+  width: 92px;
+}
+#room_id{
+  width: 72px;
+}
+@media only screen and (max-width: 1200px) {
+  th {
+    font-size: 15px;
+  }
+}
+
+
+
+@media only screen and (max-width: 970px) {
+  th {
+    font-size: 12px;
+  }
+}

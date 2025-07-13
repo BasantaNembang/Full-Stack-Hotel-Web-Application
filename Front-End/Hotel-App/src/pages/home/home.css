@@ -1,0 +1,12 @@
+.homeContainer{
+    width: 98vw;
+    /* height: 100vh; */
+    margin-top:1.5rem;
+}
+
+
+@media only screen and (max-width: 450px) {
+  .homeContainer{
+  }
+
+}

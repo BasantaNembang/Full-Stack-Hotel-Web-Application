@@ -1,0 +1,138 @@
+.ourService {
+  width: 90%;
+  margin: 8rem auto;
+  min-height: 46rem;
+}
+.topService {
+  display: block;
+  margin: 1rem auto;
+  max-width: max-content;
+  font-size: 2rem;
+}
+.imageOurService {
+  width: 100%;
+  height: 19rem;
+
+  margin-top: 4rem;
+}
+.ourService figure img {
+  width: 100%;
+  height: 19rem;
+  object-fit: cover;
+}
+.imageOurService {
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.5),
+      rgba(114, 107, 107, 0.5)
+    ),
+    url("./customer-service.png");
+  background-size: cover;
+  background-position: center;
+}
+.imageOurService span {
+  display: block;
+  max-width: max-content;
+  box-sizing: border-box;
+  margin: auto;
+  padding-top: 1rem;
+  font-size: 4rem;
+  color: white;
+}
+
+.serviceList {
+  width: 100%;
+  /* border: 1px solid; */
+  margin-top: 1rem;
+  min-height: 14rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+  box-sizing: border-box;
+  column-gap: 3rem;
+}
+.service {
+  width: 26rem;
+  height: 6rem;
+  border: 1px solid rgb(150, 150, 150);
+  margin: auto;
+  box-sizing: border-box;
+  padding: 6px;
+  border-radius: 5px;
+}
+.service .icon {
+  align-items: center;
+  display: flex;
+  gap: 14px;
+  font-size: 1.5rem;
+  color: #7fa0ee;
+}
+.react-icon {
+  font-size: 2rem;
+  color: #7fa0ee;
+}
+/*  */
+
+@media only screen and (max-width: 1530px) {
+  .service {
+    width: 24rem;
+    height: 5.9rem;
+  }
+}
+
+@media only screen and (max-width: 1420px) {
+  .service {
+    width: 22rem;
+    height: 5.5rem;
+  }
+}
+
+@media only screen and (max-width: 1310px) {
+  .service {
+    width: 20rem;
+    height: 5.5rem;
+  }
+}
+
+@media only screen and (max-width: 1250px) {
+  .service {
+    width: 18rem;
+  }
+}
+
+@media only screen and (max-width: 1095px) {
+  .service {
+    width: 16rem;
+    height: 5.5rem;
+  }
+}
+
+@media only screen and (max-width: 845px) {
+  .service {
+    width: 14.5rem;
+    height: 5.5rem;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .serviceList {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 13px;
+    margin-top: 5rem;
+  }
+  .service {
+    width: 17.5rem;
+  }
+  .service .icon {
+    font-size: 1.3rem;
+  }
+  .react-icon {
+    font-size: 1.7rem;
+  }
+}
+
+@media only screen and (max-width: 385px) {
+  .service {
+    width: 15rem;
+    min-height: 7rem;
+  }
+}

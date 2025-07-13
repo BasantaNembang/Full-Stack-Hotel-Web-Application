@@ -1,0 +1,44 @@
+
+spring:
+  application:
+    name: BOOKING-SERVICE
+
+  config:
+    import: "optional:configserver:${CONFIG_SERVER_URL:http://localhost:9296/}"
+
+
+management:
+  health:
+    circuitbreakers:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      show-details: always
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      external:
+        registerHealthIndicator: true
+        eventConsumerBufferSize: 10
+        failureRateThreshold: 50
+        minimumNumberOfCalls: 5
+        automaticTransitionFromOpenToHalfOpenEnabled: true
+        waitDurationInOpenState: 5s
+        permittedNumberOfCallsInHalfOpenState: 3
+        slidingWindowSize: 10
+        slidingWindowType: COUNT_BASED
+
+  retry:
+    instances:
+      external:
+        maxRetryAttempts: 5
+        waitDuration: 10s
+
+
+server:
+  port: 8082

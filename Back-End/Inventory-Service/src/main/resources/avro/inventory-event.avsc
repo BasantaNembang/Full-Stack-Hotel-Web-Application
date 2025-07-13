@@ -1,0 +1,9 @@
+{
+  "type": "record",
+  "name": "InventoryServiceEvent",
+  "namespace": "com.booking.event",
+  "fields": [
+    { "name": "bid", "type": "string" },
+    { "name": "subject", "type": "string" }
+  ]
+}

@@ -1,0 +1,95 @@
+.browserRoom {
+  width: 100vw;
+  min-height: 36.4rem;
+}
+.filterSection {
+  display: flex;
+  width: 90%;
+  height: 4rem;
+  margin: 3rem auto;
+  justify-content: space-between;
+}
+.searchRoomType {
+  display: flex;
+  box-sizing: border-box;
+}
+.searchRoomType span {
+  margin-top: 0.7rem;
+}
+.searchRoomType button {
+  width: 6rem;
+  border: none;
+  outline: none;
+  border-radius: 0.3rem;
+  color: white;
+  background: #5b5bff;
+  font-size: 0.9rem;
+  margin-left: 3px;
+}
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: auto;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap;
+}
+
+nav {
+  border-top: 1px solid #eee;
+  margin-top: 1em;
+  padding-top: 0.5em;
+  font: 1.2em sans-serif;
+
+  display: flex;
+  justify-content: center;
+}
+
+.pagination {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.pagination li {
+  margin: 0 1px;
+}
+
+.pagination a {
+  display: block;
+  padding: 0.5em 1em;
+  border: 1px solid #999;
+  border-radius: 0.2em;
+  text-decoration: none;
+}
+
+.pagination a[aria-current="page"] {
+  background-color: #333;
+  color: #fff;
+}
+
+.displatRoomSection {
+  width: 90%;
+  /* border: 1px solid rgb(152, 151, 151); */
+  margin: 5rem auto;
+}
+
+
+@media only screen and (max-width: 420px) {
+  .filterSection {
+    flex-direction: column;
+    height: 8rem;
+  }
+  .searchRoomType {
+    max-width: max-content;
+    margin: auto;
+  }
+  .paginationBar {
+    margin: auto;
+  }
+ 
+}

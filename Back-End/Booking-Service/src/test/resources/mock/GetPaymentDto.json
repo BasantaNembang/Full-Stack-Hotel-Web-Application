@@ -1,0 +1,8 @@
+{
+  "pid": "PAY123456",
+  "bid": "BOOK7890",
+  "payment_date": "2025-07-09T06:30:00Z",
+  "total_price": 1500,
+  "paymentMode": "CASH",
+  "paymentStatus": "SUCCESS"
+}

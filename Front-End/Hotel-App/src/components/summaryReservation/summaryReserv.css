@@ -1,0 +1,47 @@
+.summaryReservContainer {
+  width: 50%;
+  height: 30rem;
+  border: 1px solid rgb(190, 190, 190);
+  margin: 5rem auto;
+  box-sizing: border-box;
+  padding: 2rem;
+  border-radius: 3px;
+}
+.summaryDetails span {
+  display: block;
+}
+.summaryDetails {
+  margin-top: 3rem;
+}
+#summaryBTN {
+  margin-left: 4rem;
+  margin-top: 2rem;
+  width: 25rem;
+  height: 3rem;
+  border: none;
+  outline: none;
+  color: white;
+  background: #4242ff;
+  font-size: 1.2rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 925px) {
+  #summaryBTN {
+      margin-left: 0rem;}
+}
+
+
+@media only screen and (max-width: 450px) {
+    #summaryBTN {
+        margin-left: 0rem;
+        margin-top: 2rem;
+        width: 16rem;
+        height: 3rem;
+        font-size: .8rem;
+  }
+}
+
+
+

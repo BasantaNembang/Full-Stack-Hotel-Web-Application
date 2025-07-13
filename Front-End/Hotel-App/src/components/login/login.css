@@ -1,0 +1,97 @@
+.loginConatiner {
+  width: 93%;
+  margin: 3rem auto;
+  transition: all 2s;
+}
+.loginConatiner button,
+.forGetPassword button {
+  width: 6rem;
+  height: 2rem;
+  font-size: 1.1rem;
+  border: none;
+  outline: none;
+  color: white;
+  background-color: #4242ff;
+  border-radius: 3px;
+}
+.forGetPassword {
+  margin-top: 3rem;
+  transition: all 2s;
+}
+.basic-info {
+  display: flex;
+  margin-top: 2.7rem;
+  gap: 3rem;
+}
+
+.child-input-login input {
+  width: 30rem;
+  height: 2rem;
+  border: 1px solid #d1d1d1;
+  margin-top: 0.5rem;
+  box-sizing: border-box;
+  font-size: 1.1rem;
+  padding-left: 12px;
+}
+.loginConatiner h3 {
+  font-size: 1.9rem;
+}
+.child-input-login {
+  margin-bottom: 2rem;
+}
+.errorClass {
+  color: red;
+}
+#lostPp {
+  margin-top: 3rem;
+  cursor: pointer;
+}
+#lostPp:hover,
+#btLogin:hover {
+  color: blue;
+  transition: all 1s;
+}
+#btLogin {
+  margin-top: 1rem;
+  cursor: pointer;
+}
+fieldset {
+  border: none;
+}
+.forUpdatePassWord {
+  /* border: 1px solid; */
+  margin-top: 2rem;
+  height: 16rem;
+}
+.forUpdatePassWord span{
+  font-size: 1.2rem;
+}
+.forUpdatePassWord input, .CheckOTP-Box input{
+  width: 30rem;
+  height: 2rem;
+  border: 1px solid #d1d1d1;
+  margin-top: 0.5rem;
+  box-sizing: border-box;
+  font-size: 1.1rem;
+  padding-left: 12px;
+  margin: 1rem 0;  
+}
+.forUpdatePassWord button{
+  width: 12rem;
+}
+.CheckOTP{
+  display: block;
+  width: 93%;
+  border: 1px solid;
+  height: 12rem;
+}.CheckOTP-Box{
+  margin-top: 3rem;
+}
+.CheckOTP label{
+  margin-top: 2rem;
+  display: block;
+  font-size: 1.3rem;
+}
+.CheckOTP-Box button{
+ width: 8rem;
+}

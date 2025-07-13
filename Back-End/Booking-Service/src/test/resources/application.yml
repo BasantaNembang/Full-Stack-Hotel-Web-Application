@@ -1,0 +1,22 @@
+
+spring:
+  application:
+    name: BOOKING-SERVICE
+
+  config:
+    import: "optional:configserver:${CONFIG_SERVER_URL:http://localhost:9296/}"
+  kafka:
+    template:
+      default-topic: booked-room
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+
+eureka:
+  client:
+    enabled: false
+
+
+server:
+  port: 0
+

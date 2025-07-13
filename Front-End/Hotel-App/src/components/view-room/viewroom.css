@@ -1,0 +1,85 @@
+.viewRoomContainer {
+  max-width: max-content;
+  margin: 3rem auto;
+}
+.viewRoomContainer h3 {
+  font-size: 3rem;
+  margin-bottom: 4rem;
+}
+
+input[type="file"] {
+  display: none;
+}
+.custom-file-upload {
+  border: 1px solid #0a43ff;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+  width: 20rem;
+  background: #e9e9e9;
+}
+.viewImage{
+  /* border: 1px solid; */
+  width: 22rem;
+  position: relative;
+} 
+.viewImage span{
+  position: absolute;
+  color: rgb(154, 0, 0);
+  font-size: 4rem;
+  top: 8%;
+  left: 87%;
+  transform: translate(-50%, -50%);
+}
+.viewImage img {
+  width: 100%;
+  height: auto;
+  display: flex;
+}
+
+.infoViewRoom {
+  margin: 1rem auto;
+  max-width: max-content;
+}
+.errorAdmin{
+  color: red;
+}
+.viewRoomDiv{
+  margin: 2rem 0;
+
+}
+.infoViewRoom input{
+  width: 21.8rem;
+  height: 2rem;
+  margin-top: .9rem;
+  box-sizing: border-box;
+  padding-left: 13px;
+}
+.viewRoomDiv select{
+  width: 22rem;
+  height: 2rem;
+  margin-top: .9rem;
+}
+.viewRoomDiv label{
+  color: #4e4e4e;
+}
+.viewRoomBTN{
+
+}
+.viewRoomBTN button{
+  width: 6rem;
+  height: 2rem;
+  font-size: 1.1rem;
+  border: 1px solid blue;
+  background-color: white;
+  color: blue;
+  box-sizing: border-box;
+  margin: 2rem;
+}
+.makeStableImage{
+  margin: 4rem auto;
+}
+.successSpan{
+  color: green;
+  font-size: 1.5rem;
+}

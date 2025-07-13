@@ -1,0 +1,21 @@
+
+spring:
+  config:
+    import: optional:configserver:${CONFIG_SERVER_URL:http://localhost:9296/}
+  kafka:
+    listener:
+      concurrency: 2
+      observation-enabled: true
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+    consumer:
+      group-id: inventory-service
+      key-deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+      auto-offset-reset: earliest
+      properties:
+        spring.deserializer.key.delegate.class: org.apache.kafka.common.serialization.StringDeserializer
+        spring.deserializer.value.delegate.class: io.confluent.kafka.serializers.KafkaAvroDeserializer
+        specific.avro.reader: true
+    properties:
+      schema.registry.url: ${SPRING_SCHEMA_REGISTRY_URL:http://localhost:8085}
+

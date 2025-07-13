@@ -1,0 +1,89 @@
+.contanier-SingUp {
+  width: 93%;
+  height: 35rem;
+  margin: 3rem auto;
+}
+.contanier-SingUp button {
+  width: 7rem;
+  height: 2rem;
+  font-size: 1rem;
+  margin-top: 2rem;
+  border: none;
+  outline: none;
+  color: white;
+  background-color: #4242ff;
+  border-radius: 3px;
+}
+.basic-info {
+  display: flex;
+  margin-top: 2.7rem;
+  gap: 3rem;
+}
+.auth-info {
+  display: flex;
+  margin-top: 1rem;
+  gap: 3rem;
+}
+.auth-info label {
+  font-size: 1.2rem;
+  margin-top: 8px;
+}
+.auth-info input {
+  width: 21.5rem;
+  height: 2rem;
+  border: 1px solid #d1d1d1;
+  margin-top: 0.5rem;
+  box-sizing: border-box;
+  font-size: 1.1rem;
+  padding-left: 12px;
+}
+.contanier-SingUp h3 {
+  font-size: 1.9rem;
+}
+.contanier-SingUp label {
+  font-size: 1.2rem;
+  margin-top: 8px;
+}
+.contanier-SingUp input {
+  width: 21.5rem;
+  height: 2rem;
+  border: 1px solid #d1d1d1;
+  margin-top: 0.5rem;
+  box-sizing: border-box;
+  font-size: 1.1rem;
+  padding-left: 12px;
+}
+.child-input {
+  margin: 1rem 0;
+}
+.radio-info input {
+  width: 1.2rem;
+}
+.radio-info {
+  display: flex;
+  gap: 2rem;
+}
+#gender {
+  font-size: 1.2rem;
+}
+.d-flex {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+}
+.d-flex label {
+  font-size: 1rem;
+  color: #5b5b5b;
+}
+.errorClass{
+    color: red;
+}
+@media only screen and (max-width: 450px) {
+  .contanier-SingUp input {
+    width: 15.5rem;
+  }
+  .d-flex input {
+    width: 1.3rem;
+  }
+}

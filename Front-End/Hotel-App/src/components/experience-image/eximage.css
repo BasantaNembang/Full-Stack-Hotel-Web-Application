@@ -1,0 +1,39 @@
+.experineImageContainer {
+  width: 90%;
+  height: 30rem;
+  box-sizing: border-box;
+  padding-top: 10rem;
+  background-image: url("./Cover-image.jpg");
+  background-color: rgba(191, 187, 187, 0.4);
+  background-size: cover;
+  margin: auto;
+  margin-bottom: 6rem;
+}
+.experineImageContainer span {
+  display: block;
+  max-width: max-content;
+  margin: auto;
+  margin-top: -7rem;
+  font-size: 2.7rem;
+  color: white;
+  font-weight: bolder;
+}
+.experineImageContainer .secondLine {
+  color: rgb(255, 255, 255);
+  margin-top: 0.2rem;
+  font-size: 2rem;
+}
+@media only screen and (max-width: 899px) {
+  .experineImageContainer span {
+    font-size: 2.5rem;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .experineImageContainer span {
+    font-size: 1.5rem;
+  }
+  .experineImageContainer .secondLine {
+    font-size: 1.2rem;
+  }
+}

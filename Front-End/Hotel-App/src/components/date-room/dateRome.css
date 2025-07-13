@@ -1,0 +1,69 @@
+.dateSectionContainer {
+  display: flex;
+  width: 90%;
+  height: 8rem;
+  margin: 2rem auto;
+  box-shadow: 3px 3px 23px -5px rgba(0, 0, 0, 1);
+  -webkit-box-shadow: 3px 3px 23px -5px rgba(0, 0, 0, 1);
+  -moz-box-shadow: 3px 3px 23px -5px rgba(0, 0, 0, 1);
+}
+.dateChild {
+  margin: auto;
+  width: 17rem;
+}
+.dateChild button {
+  width: 6rem;
+  border: none;
+  outline: none;
+  height: 1.5rem;
+  background-color: #4c82ff;
+  color: white;
+  border-radius: 0.2rem;
+}
+.dateChild input,
+select {
+  border: 1.5px solid rgb(173, 172, 172);
+  width: 16rem;
+  height: 1.8rem;
+  font-size: 0.9rem;
+  margin-top: 0.4rem;
+  background-color: white;
+  outline: none;
+  box-sizing: border-box;
+  padding: 1px 8px;
+}
+
+@media only screen and (max-width: 899px) {
+  .dateChild {
+    width: 13rem;
+  }
+  .dateChild input,
+  select {
+    width: 13rem;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .dateChild {
+    width: 8.5rem;
+  }
+
+  .dateChild input,
+  select {
+    width: 9rem;
+  }
+  .dateSectionContainer {
+    height: 12rem;
+    position: relative;
+  }
+  .dateChild {
+    margin-top: 13px;
+  }
+    .dateChild button {
+    font-size: 1rem;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

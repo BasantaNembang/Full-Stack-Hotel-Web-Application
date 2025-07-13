@@ -1,0 +1,9 @@
+
+spring:
+  application:
+    name: HOTEL-SERVICE
+
+  config:
+    import: optional:configserver:${CONFIG_SERVER_URL:http://localhost:9296/}
+
+

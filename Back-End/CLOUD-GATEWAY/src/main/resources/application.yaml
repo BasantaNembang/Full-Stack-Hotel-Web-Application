@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: CLOUD-GATEWAY
+
+  cloud:
+    gateway:
+      httpclient:
+        connect-timeout: 10000       # 10 seconds in ms
+        response-timeout: 10s        # 10 seconds as duration
+
+logging:
+  level:
+    org.springframework.retry: DEBUG
+
+server:
+  port: 9090

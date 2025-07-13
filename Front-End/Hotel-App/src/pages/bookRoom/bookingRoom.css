@@ -1,0 +1,156 @@
+.bookingRoom {
+  width: 100vw;
+  min-height: 40rem;
+}
+.infoSectionbookingRoom {
+  width: 90%;
+  /* border: 1px solid; */
+  margin: 2rem auto;
+  display: flex;
+  gap: 6rem;
+}
+.informationRoom {
+  width: 32rem;
+  min-height: 30rem;
+  /* border: 1px solid; */
+}
+.informationRoom span {
+  font-size: 2rem;
+  margin-top: 1rem;
+  display: block;
+}
+.bookingRoom figure {
+  margin-top: 1rem;
+}
+.informationRoom figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.bookingRoom button {
+  margin-left: 4rem;
+  margin-top: 2rem;
+  width: 5rem;
+  height: 2rem;
+  border: none;
+  outline: none;
+  color: white;
+  background: #4242ff;
+  font-size: 1rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+}
+.informationBooking {
+  width: 58rem;
+  border: 1px solid rgb(190, 190, 190);
+  box-sizing: border-box;
+  padding: 1rem;
+  border-radius: 5.3px;
+}
+
+#price {
+  font-size: 1.6rem;
+  color: green;
+}
+.topSectionInfoBook {
+  margin-top: 2rem;
+}
+.topSectionInfoBook input {
+  width: 50%;
+  /* height: 2.5rem; */
+  height: 2rem;
+  outline: none;
+  box-sizing: border-box;
+  padding-left: 10px;
+  font-size: 1.1rem;
+  margin-top: 0.8rem;
+}
+.topSectionInfoBook label,
+.buttonSectionInfoBook1 label {
+  color: rgb(39, 39, 251);
+  font-size: 1.1rem;
+}
+.topSectionInfoBook1 {
+  margin: 1.2rem 0;
+}
+.buttonSectionConatiner {
+  margin-top: 1.2rem;
+  display: flex;
+  gap: 4rem;
+}
+.buttonSectionInfoBook1 {
+  width: 45%;
+  /* border: 1px solid; */
+}
+.buttonSectionInfoBook1 input {
+  width: 100%;
+  /* height: 2.5rem; */
+   height: 2rem;  
+  font-size: 1.1rem;
+  outline: none;
+  margin-top: 1rem;
+}
+#submitBTN {
+  margin-left: 0rem;
+  margin-top: 1rem;
+  width: 7rem;
+  height: 3rem;
+  border: none;
+  outline: none;
+  color: white;
+  background: #4242ff;
+  font-size: 1.3rem;
+  border-radius: 0.3rem;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td{
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+td:nth-child(1) {
+ width: 40%;
+}
+table tr td{
+  font-size: 1rem;
+}
+.iconService span{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.4rem;
+}
+@media only screen and (max-width: 1550px) {
+  .bookingRoom figure {
+    width: 25rem;
+    height: 15rem;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .bookingRoom figure {
+    width: 19rem;
+    height: 11rem;
+  }
+  @media only screen and (max-width: 450px) {
+    .infoSectionbookingRoom {
+      flex-direction: column;
+    }
+    .informationRoom {
+      margin: auto;
+      min-height: 22rem;      
+    }
+    .informationBooking {
+      width: 38rem;
+    }
+  }
+}

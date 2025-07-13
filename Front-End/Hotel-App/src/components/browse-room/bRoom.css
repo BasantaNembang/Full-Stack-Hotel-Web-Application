@@ -1,0 +1,95 @@
+.browseRoomContainer {
+  min-height: 25rem;
+  display: flex;
+  width: 90%;
+  margin: 2rem auto;
+  justify-content: space-evenly;
+  position: relative;
+  box-shadow: 3px 3px 23px -5px rgba(0, 0, 0, 1);
+  -webkit-box-shadow: 3px 3px 23px -5px rgba(0, 0, 0, 1);
+  -moz-box-shadow: 3px 3px 23px -5px rgba(0, 0, 0, 1);
+}
+.browseRoomContainer span {
+  margin: 0.3rem;
+  position: absolute;
+  left: 7px;
+}
+.demoRooms {
+  width: 16rem;
+  height: 16.4rem;
+  border: 1px solid rgb(188, 188, 188);
+  margin-top: 5rem;
+  border-radius: 4px;
+}
+.demoRooms figure img {
+  width: 96%;
+  height: 10rem;
+  object-fit: cover;
+  margin-left: 5px;
+  margin-top: 3px;
+}
+.info {
+  display: inline-block;
+  margin-left: 0.5rem;
+}
+.brRoom {
+  color: #7fa0ee;
+  width: 8rem;
+  height: 1.7rem;
+  outline: none;
+  border: navajowhite;
+  margin-top: 5px;
+}
+
+.info p:nth-child(1) {
+  font-weight: bold;
+  font-size: 1.3rem;
+  width: max-content;
+}
+.info p:nth-child(2) {
+  color: rgb(10, 112, 46);
+}
+.info button {
+  background-color: #7fa0ee;
+  color: white;
+}
+
+
+/*  */
+
+.butS button {
+  border: none !important;
+  outline: none !important;
+}
+
+.butS > :nth-child(1) {
+  border: none;
+  outline: none;
+  font-size: 1.2em;
+  background-color: rgb(218, 233, 248);
+  width: 42px;
+  color: blue;
+  border-radius: 6px;
+  height: 39px;
+}
+.butS > :nth-child(2) {
+  /* background-color: white; */
+  font-size: 1.4em;
+  width:45px;
+  color: blue;
+  border: 1px solid black;
+  border-radius: 6px;
+  box-shadow: 19px 19px 36px -6px rgba(0,0,0,0.68);
+  -webkit-box-shadow: 19px 19px 36px -6px rgba(0,0,0,0.68);
+  -moz-box-shadow: 19px 19px 36px -6px rgba(0,0,0,0.68);
+
+}
+.butS {
+  position: absolute;
+  top: 10px;
+  right: 50px;
+  z-index: 10;
+  color: rgb(44, 44, 239);
+  display: flex;
+  gap: 1em;
+}

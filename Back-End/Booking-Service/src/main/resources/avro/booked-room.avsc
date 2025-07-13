@@ -1,0 +1,10 @@
+{
+  "type": "record",
+  "name": "BookedRoomEvent",
+  "namespace": "com.booking.event",
+  "fields": [
+    { "name": "conformationNumber", "type": "string" },
+    { "name": "guest", "type": "string" },
+    { "name": "subject", "type": "string" }
+  ]
+}

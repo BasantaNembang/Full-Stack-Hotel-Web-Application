@@ -1,0 +1,119 @@
+version: '3.8'
+
+services:
+  
+  #for hotel-booking
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: password
+      MONGO_INITDB_DATABASE: hotel-bookingdb
+    volumes:
+      - ./data/mongodb:/data/db
+
+
+  mysql: #for hotel-service
+    image: mysql:latest
+    container_name: mysql-hotelservice
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    volumes:
+      - ./mysql:/var/lib/mysql
+      - ./docker/mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  #for user-service
+  mysql-user:
+    image: mysql:latest
+    container_name: mysql-userservice
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    volumes:
+      - ./mysql1:/var/lib/mysql
+      - ./docker/mysql/init1.sql:/docker-entrypoint-initdb.d/init1.sql
+
+
+  mysql-inventory: #for inventory-service
+    image: mysql:latest
+    container_name: mysql-inventoryservice
+    ports:
+      - "3308:3306"
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    volumes:
+      - ./mysql2:/var/lib/mysql
+      - ./docker/mysql/init2.sql:/docker-entrypoint-initdb.d/init2.sql
+
+
+  mysql-payment: #for payment-service
+    image: mysql:latest
+    container_name: mysql-paymentyservice
+    ports:
+      - "3309:3306"
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    volumes:
+      - ./mysql3:/var/lib/mysql
+      - ./docker/mysql/init3.sql:/docker-entrypoint-initdb.d/init3.sql
+
+  #cache in hotel-service and  for cache-data to store OTP
+  cache:
+    image: redis:7.0.4
+    container_name: redis-hotelservice
+    restart: always
+    ports:
+      - '6378:6379'
+    volumes:
+      - cache:/data
+
+  #apache kafka
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.5.0
+    hostname: zookeeper
+    container_name: zookeeper
+    ports:
+      - "2181:2181"
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+
+  broker:
+    image: confluentinc/cp-kafka:7.5.0
+    container_name: broker
+    ports:
+      - "9092:9092"
+      - "29092:29092"
+    depends_on:
+      - zookeeper
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: "zookeeper:2181"
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: "PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT"
+      KAFKA_ADVERTISED_LISTENERS: "PLAINTEXT://broker:29092,PLAINTEXT_HOST://localhost:9092"
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1  
+
+  schema-registry:
+    image: confluentinc/cp-schema-registry:7.5.0
+    hostname: schema-registry
+    container_name: schema-registry
+    depends_on:
+      - broker
+    ports:
+      - "8085:8081"
+    environment:
+      SCHEMA_REGISTRY_HOST_NAME: schema-registry
+      SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS: "broker:29092"
+      SCHEMA_REGISTRY_LISTENERS: "http://schema-registry:8081"
+
+
+
+volumes:
+  cache:
+    driver: local
