@@ -13,7 +13,6 @@ function SummaryReserv({reserveRoomInfo, totalDaysBooked, SetreserveRoomInfo, Se
     if(sRfalg){
     let flag = await bookedRoom(reserveRoomInfo)
     
-    console.log(flag)
     if(flag === true){
     toast.success("Booking Confirmed")
     setTimeout(() => {

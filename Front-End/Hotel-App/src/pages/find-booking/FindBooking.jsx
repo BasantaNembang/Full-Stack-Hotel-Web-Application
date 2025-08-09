@@ -2,7 +2,7 @@ import React, { useRef, useState, useContext } from "react";
 
 import { deleteBookedRoom, getBookingRoomCID } from "../../utils/API-functions-Bookings";
 import { toast } from "react-toastify";
-import { AuthContext } from "../../context/authContext";
+import { AuthContext } from "../../context/AuthContext";
 import "./findbooking.css";
 
 const FindBooking = () => {

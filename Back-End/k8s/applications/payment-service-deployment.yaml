@@ -1,0 +1,64 @@
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: payment-service
+spec:
+  selector:
+    matchLabels:
+      app: payment-service
+  template:
+    metadata:
+      labels:
+        app: payment-service
+    spec:
+      containers:
+      - name: payment-service
+        image: basantanembang10/h-payment-service:latest
+
+        ports:
+        - containerPort: 8084
+
+        env:
+          - name: CONFIG_SERVER_URL
+            valueFrom:
+              configMapKeyRef:
+                key: config_uri
+                name: payment-service-cmap
+
+          - name: DB_HOST
+            valueFrom:
+              configMapKeyRef:
+                key: hostName
+                name: payment-service-cmap
+
+
+---
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: payment-service-cmap
+data:
+  config_uri: http://config-server-svc:9296
+  hostName: mysql-svc
+  
+
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: payment-service-svc
+spec:
+  selector:
+    app: payment-service
+  ports:
+  - protocol: TCP
+    port: 8084
+    targetPort: 8084
+
+
+    

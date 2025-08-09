@@ -50,10 +50,6 @@
 }
 /*  */
 @media only screen and (max-width: 1235px) {
-  .imageCard {
-    /* width: 15rem; */
-    /* margin-top: 27px; */
-  }
   .detailsCard {
     margin-top: 2rem;
     display: inline-block;

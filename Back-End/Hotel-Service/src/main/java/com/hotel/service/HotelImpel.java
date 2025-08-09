@@ -2,12 +2,12 @@ package com.hotel.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.hotel.dto.Data;
 import com.hotel.dto.HotelDto;
 import com.hotel.entity.Hotel;
 import com.hotel.exception.ImageNotFoundException;
 import com.hotel.exception.ResourceNotFoundExcp;
 import com.hotel.repo.HotelRepo;
-import org.apache.el.stream.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
@@ -37,20 +37,25 @@ import java.util.UUID;
 public class HotelImpel implements HotelLInterface {
 
     final String basePath = "http://localhost:8080/hotel/";
+
     @Autowired
     private HotelRepo hotelRepo;
 
     @Override
     @Transactional
-    @CachePut(value = "room", key="#result.hid()")
-    public Hotel saveHotel(String date, MultipartFile file) {
+    @CachePut(value = "room", key="#result.hid")
+    public HotelDto saveHotel(MultipartFile file, String data) {
 
         String imageName = file.getOriginalFilename()+"_"+System.currentTimeMillis();
         ObjectMapper objectMapper = new ObjectMapper();
-        Hotel hotel;
+        Hotel hotel = new Hotel();
+        Data dataResponse;
         try {
-            hotel =  objectMapper.readValue(date, Hotel.class);
-        } catch (JsonProcessingException e) {throw new RuntimeException(e);}
+            dataResponse =  objectMapper.readValue(data, Data.class);
+        } catch (JsonProcessingException e) {
+            System.out.println(e.getMessage());
+            throw new RuntimeException(e);
+        }
 
         //save image in folder
         Path userDirectory = Paths.get(System.getProperty("user.dir"), "Images");
@@ -58,7 +63,10 @@ public class HotelImpel implements HotelLInterface {
         if(!Files.exists(userDirectory)){
             try {
                 Files.createDirectories(userDirectory);
-            } catch (IOException e) {throw new RuntimeException(e);}}
+            } catch (IOException e) {
+                System.out.println(e.getMessage());
+                throw new RuntimeException(e);}
+        }
 
         try {
             Path path = userDirectory.resolve(imageName);
@@ -66,11 +74,21 @@ public class HotelImpel implements HotelLInterface {
             hotel.setHid(UUID.randomUUID().toString().substring(0,7));
             hotel.setImageurl(basePath+"Images/"+imageName);
             hotel.setImageid(imageName);
-        } catch (IOException e) {throw new RuntimeException(e); }
+            hotel.setRoomtype(dataResponse.getRoomtype());
+            hotel.setRoomprice(dataResponse.getRoomprice());
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+            throw new RuntimeException(e);
+        }
+        Hotel h = null;
+        try{
+           h  =  hotelRepo.save(hotel);
+          System.out.println("Data saved   "+ hotel);
+        } catch (Exception e) {
+            throw new RuntimeException("Error while saving data  "+e.getMessage());
+        }
 
-        System.out.println(hotel);
-        hotelRepo.save(hotel);
-        return hotel;
+        return new HotelDto(h.getHid(), h.getRoomtype(), h.getImageurl(), h.getRoomprice(), h.getImageid());
 
     }
 
@@ -152,7 +170,7 @@ public class HotelImpel implements HotelLInterface {
     public HotelDto getSingelRoom(String hid) {
            Hotel hotel =  hotelRepo.findById(hid).orElseThrow(()->new ResourceNotFoundExcp("No such Room is present here.."));
            HotelDto dto = new HotelDto(hotel.getHid(), hotel.getRoomtype(), hotel.getImageurl(), hotel.getRoomprice(), hotel.getImageid());
-            return dto;
+           return dto;
         }
 
 

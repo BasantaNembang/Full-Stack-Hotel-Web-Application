@@ -72,8 +72,6 @@ public class UserService implements  UserServiceInt{
 
     @Override
     public String loginUser(UserDto userDto) {
-        System.out.println("_____________");
-        System.out.println(userDto);
         Authentication manager = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(userDto.username(), userDto.password()));
         if(manager.isAuthenticated()){

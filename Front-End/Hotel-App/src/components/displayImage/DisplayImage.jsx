@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 
 function DisplayImage({ bolean, Setbolean }) {
   let clickedDisplayImg = () => {
-    //console.log("Omg ",bolean)
     if (bolean) {
       Setbolean(false);
     }

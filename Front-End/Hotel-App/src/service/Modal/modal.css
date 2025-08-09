@@ -13,7 +13,6 @@
   transform: translate(-50%, -50%);
   width: 53rem;
   min-height: 38rem;
-  /* min-height: 53rem; */
   border: 1px solid rgb(178, 178, 178);
   background-color: rgb(255, 255, 255);
   z-index: 1000;
@@ -44,9 +43,6 @@
 .active-modal{
     color: rgb(21, 25, 254);
 }
-
-
-
 
 @media only screen and (max-width: 450px) {
   .modal-container {

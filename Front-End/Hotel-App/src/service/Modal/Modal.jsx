@@ -2,7 +2,7 @@ import React, {  useContext, useRef } from "react";
 import "./modal.css";
 import SingnUp from "../../components/sing-up/SingnUp";
 import Login from "../../components/login/Login";
-import { AuthContext } from "../../context/authContext";
+import { AuthContext } from "../../context/AuthContext";
 
 function Modal({ Setbol_login }) {
     

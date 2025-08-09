@@ -11,7 +11,7 @@ public class Hotel {
     private String hid;
     private String roomtype;
     private String imageurl;
-    private int roomprice;
+    private Double roomprice;
     private String imageid;
 
 
@@ -27,7 +27,7 @@ public class Hotel {
         return imageurl;
     }
 
-    public int getRoomprice() {
+    public Double getRoomprice() {
         return roomprice;
     }
 
@@ -48,7 +48,7 @@ public class Hotel {
         this.imageurl = imageurl;
     }
 
-    public void setRoomprice(int roomprice) {
+    public void setRoomprice(Double roomprice) {
         this.roomprice = roomprice;
     }
 

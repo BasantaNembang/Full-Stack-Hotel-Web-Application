@@ -1,0 +1,37 @@
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: config-server
+spec:
+  selector:
+    matchLabels:
+      app: config-server
+  template:
+    metadata:
+      labels:
+        app: config-server
+    spec:
+      containers:
+      - name: config-server
+        image: basantanembang10/configserver:latest
+        ports:
+        - containerPort: 9296
+
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: config-server-svc
+spec:
+  selector:
+    app: config-server
+  ports:
+  - name: http
+    protocol: TCP
+    port: 9296
+    targetPort: 9296
+

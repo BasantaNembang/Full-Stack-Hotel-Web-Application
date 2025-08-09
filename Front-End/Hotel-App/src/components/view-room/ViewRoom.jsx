@@ -20,7 +20,7 @@ function ViewRoom({HotelDto, roomText,  SetflagAddRoom }) {
   
   let [data, Setdata] = useState({
     roomtype: "",
-    roomprice: ""       
+    roomprice: 0.00      
   })
   
   let [fileMessage, SetfileMessage] = useState("");
@@ -97,12 +97,10 @@ function ViewRoom({HotelDto, roomText,  SetflagAddRoom }) {
    else{
     let file = refFile.current.files;
     if(file[0]){   //if file present
-    sendData.append("data", JSON.stringify(data));
     let file = refFile.current.files;
     sendData.append("file", file ? file[0] : new Blob);
-    //console.log("Add new one")
-    //console.log(sendData)
-     let flag = await addRoom(sendData);
+    sendData.append("data", JSON.stringify(data));
+    let flag = await addRoom(sendData);
    
      //clear the form and set the success message as well
           if(flag){
@@ -197,10 +195,17 @@ function ViewRoom({HotelDto, roomText,  SetflagAddRoom }) {
 
           <div className="viewImage">
             {
-              selectedImage ?  ( <span onClick={deleteImage} >x</span>  ) : undefined
+              selectedImage && 
+              (
+                <>
+                 <span onClick={deleteImage} >x</span> 
+                 <img src={selectedImage} alt="image" /> 
+                </>
+              )
+
             }
            
-            <img src={selectedImage} alt="" />
+            {/* */}
          
           
               <div className="viewRoomBTN">

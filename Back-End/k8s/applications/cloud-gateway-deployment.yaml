@@ -1,0 +1,84 @@
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cloud-gateway
+spec:
+  selector:
+    matchLabels:
+      app: cloud-gateway
+  template:
+    metadata:
+      labels:
+        app: cloud-gateway
+    spec:
+      initContainers:
+        - name: wait-for-booking
+          image: busybox
+          command: ['sh', '-c', 'until nc -z booking-service-svc 8082; do echo "Waiting for booking-service..."; sleep 2; done;']
+          
+        - name: wait-for-user
+          image: busybox
+          command: ['sh', '-c', 'until nc -z user-service-svc 8081; do echo "Waiting for user-service..."; sleep 2; done;']
+
+        - name: wait-for-hotel
+          image: busybox
+          command: ['sh', '-c', 'until nc -z hotel-service-svc 8080; do echo "Waiting for hotel-service..."; sleep 2; done;']
+
+
+      containers:
+      - name: mycloud-gatewayapp
+        image: basantanembang10/h-cloud-service:latest
+        
+        ports:
+        - containerPort: 9090
+        
+        env:
+          - name: BOOKING_URL
+            valueFrom:
+              configMapKeyRef:
+                name: cloud-gateway-cmap
+                key: booking_service_uri
+
+          - name: USER_URL
+            valueFrom:
+              configMapKeyRef:
+                name: cloud-gateway-cmap
+                key: user_service_uri       
+
+          - name: HOTEL_URL
+            valueFrom:
+              configMapKeyRef:
+                name: cloud-gateway-cmap
+                key: hotel_service_uri
+
+
+---
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cloud-gateway-cmap
+data:
+  booking_service_uri: http://booking-service-svc.default.svc.cluster.local:8082
+  user_service_uri: http://user-service-svc.default.svc.cluster.local:8081
+  hotel_service_uri: http://hotel-service-svc.default.svc.cluster.local:8080
+
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: cloud-gateway-svc
+spec:
+  selector:
+    app: cloud-gateway
+  ports:
+  - protocol: TCP
+    port: 9090
+    targetPort: 9090
+
+
+    

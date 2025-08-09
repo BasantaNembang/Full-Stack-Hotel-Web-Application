@@ -3,7 +3,7 @@
   height: 30rem;
   box-sizing: border-box;
   padding-top: 10rem;
-  background-image: url("./Cover-image.jpg");
+  background-image: url("/Cover-image.jpg");
   background-color: rgba(191, 187, 187, 0.4);
   background-size: cover;
   margin: auto;

@@ -25,7 +25,7 @@
       rgba(255, 255, 255, 0.5),
       rgba(114, 107, 107, 0.5)
     ),
-    url("./customer-service.png");
+    url("/customer-service.png");
   background-size: cover;
   background-position: center;
 }
@@ -41,12 +41,10 @@
 
 .serviceList {
   width: 100%;
-  /* border: 1px solid; */
   margin-top: 1rem;
   min-height: 14rem;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-
   box-sizing: border-box;
   column-gap: 3rem;
 }

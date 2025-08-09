@@ -7,7 +7,7 @@ COPY ${JAR_FILE} hotel-service.jar
 
 ENTRYPOINT ["java", "-jar", "/hotel-service.jar"]
 
-EXPOSE 9090
+EXPOSE 8080
 
 
 

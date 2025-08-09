@@ -7,7 +7,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ToastContainer } from "react-toastify";
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
-import { AuthProvider } from "./context/authContext.jsx";
+import { AuthProvider } from "./context/AuthContext.jsx";
 
 const queryClient = new QueryClient();
 

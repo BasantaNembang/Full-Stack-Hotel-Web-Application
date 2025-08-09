@@ -3,27 +3,24 @@ import axios from "axios";
 
 export const Api = axios.create({
   baseURL: "http://localhost:9090/bookings",
+  // baseURL: "http://cloud-gateway-svc/bookings",
 });
+
 
 //function to booked room
 export async function bookedRoom(bookingInfo) {
   let response = null;
-  //console.log(bookingInfo)
   try {
     response = await Api.post("/place", bookingInfo, {
       headers: { "Content-Type": "application/json" },
     });
-    console.log(response);
+    //console.log(response);
     if (response.status === 202 || response.status === 200) {
-      if (response?.data.msg === "Room has been booked already...") {
-        return response.data.msg;
-      } else {
-        return true;
-      }
+       return true;
     }
   } catch (error) {
     console.error("error  ", error);
-    return false;
+    return error.response.data.msg;
   }
 }
 

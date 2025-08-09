@@ -28,8 +28,6 @@ export async function addUser(sendData){
 //function to login users
 export async function loginUser(sendData){
     let response = null;
-    console.log(sendData)
-
      try {
         response = await Api.post("/login", sendData, {
             headers:{"Content-Type":"application/json"}
@@ -74,7 +72,6 @@ export async function checkOTP(otp) {
 
 //function to update Password 
 export async function updateForgotPassWord(password) {
-    //console.log(password)
     let response = null;
      try {
         response = await Api.put("/update-password/" + password);

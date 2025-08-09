@@ -2,7 +2,6 @@ package com.hotel.controler;
 
 
 import com.hotel.dto.HotelDto;
-import com.hotel.entity.Hotel;
 import com.hotel.service.CacheInsPection;
 import com.hotel.service.HotelImpel;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,12 +23,10 @@ public class HotelController {
     @Autowired
     private CacheInsPection cacheInsPection;
 
-    //add room
+    //add
     @PostMapping("/add")
-    public ResponseEntity<Hotel> addNewRoom(@RequestPart("file") MultipartFile file, @RequestPart("data") String data) {
-
-          Hotel hotel = hotelImpel.saveHotel(data, file);
-          return new ResponseEntity<Hotel>(hotel, HttpStatus.ACCEPTED);
+    public ResponseEntity<HotelDto> addNewRoom(@RequestPart("file") MultipartFile file, @RequestPart("data") String data) {
+          return ResponseEntity.status(HttpStatus.OK).body(hotelImpel.saveHotel(file, data));
     }
 
 
@@ -92,5 +89,6 @@ public class HotelController {
 
 
 }
+
 
 

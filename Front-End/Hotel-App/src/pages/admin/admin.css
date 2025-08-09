@@ -1,7 +1,6 @@
 .adminSection {
   width: 90%;
   min-height: 32rem;
-  /* border: 1px solid; */
   margin: 4rem auto;
 }
 .backgroundAdminImage {
@@ -11,7 +10,7 @@
       rgba(255, 255, 255, 0.5),
       rgba(114, 107, 107, 0.5)
     ),
-    url("./Admin.jpg");
+    url("/Admin.jpg");
   background-size: cover;
   background-position: center;
 }

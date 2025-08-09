@@ -9,8 +9,7 @@ import AdminSection from "./pages/admin/AdminSection";
 import Modal from "./service/Modal/Modal";
 import BookingRoom from "./pages/bookRoom/BookingRoom";
 import FindBooking from "./pages/find-booking/FindBooking";
-import { AuthContext } from "./context/authContext";
-
+import { AuthContext } from "./context/AuthContext";
 
 function App() {
   let [bolean, Setbolean] = useState(false);

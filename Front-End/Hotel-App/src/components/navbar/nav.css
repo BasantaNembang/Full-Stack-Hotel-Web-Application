@@ -12,7 +12,6 @@
 }
 
 .navContainer ul li{
-  /* text-decoration: none; */
   font-size: 1.2rem;
 }
 .navItem {
@@ -54,7 +53,6 @@ ul li {
 .no-addUnderLine{
   color: "#7fa0ee";
   text-decoration: none;
-  /* text-decoration: underline; */
 }
 /* 780 */
 @media only screen and (max-width: 1058px) {

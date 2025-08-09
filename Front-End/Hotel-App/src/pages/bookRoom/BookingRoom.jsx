@@ -12,8 +12,7 @@ import { MdOutlineFreeBreakfast } from "react-icons/md";
 import { FaCar } from "react-icons/fa";
 import { LuCircleParking } from "react-icons/lu";
 import { GiLoincloth } from "react-icons/gi";
-import { AuthContext } from '../../context/authContext';
-
+import { AuthContext } from '../../context/AuthContext';
 
 function BookingRoom() {
     
@@ -56,7 +55,6 @@ function BookingRoom() {
    let { isAuthenticated, Setbol_login} = useContext(AuthContext);
 
    let isAuthentcate = isAuthenticated();
-   //console.log(falg)
   
   if(!isAuthentcate==true){
      //go to login page

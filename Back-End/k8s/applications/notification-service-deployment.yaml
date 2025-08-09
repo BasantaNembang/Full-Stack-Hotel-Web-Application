@@ -1,0 +1,61 @@
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: notification-service
+spec:
+  selector:
+    matchLabels:
+      app: notification-service
+  template:
+    metadata:
+      labels:
+        app: notification-service
+    spec:
+      containers:
+      - name: notification-service
+        image: basantanembang10/h-notification-service:latest
+      
+        ports:
+        - containerPort: 8087
+
+        env:
+          - name: KAFKA_BOOTSTRAP_SERVERS
+            valueFrom:
+              configMapKeyRef:
+                name: notification-service-cmap
+                key: spring_bootstrap_servers     
+
+          - name: SCHEMA_REGISTRY_URL
+            valueFrom:
+              configMapKeyRef:
+                name: notification-service-cmap
+                key: spring_schema_registry_uri
+
+---
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: notification-service-cmap
+data:
+  spring_bootstrap_servers: broker:29092
+  spring_schema_registry_uri: http://schema-registry-svc:8090
+
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: notification-service-svc
+spec:
+  selector:
+    app: notification-service
+  ports:
+  - protocol: TCP
+    port: 8087
+    targetPort: 8087
+
+

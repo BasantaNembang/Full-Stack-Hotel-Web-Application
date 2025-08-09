@@ -1,0 +1,73 @@
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hotel-service
+spec:
+  selector:
+    matchLabels:
+      app: hotel-service
+  template:
+    metadata:
+      labels:
+        app: hotel-service
+    spec:
+      containers:
+        - name: hotel-service
+          image: basantanembang10/h-hotel-service:latest
+
+          ports:
+            - containerPort: 8080
+
+          env:
+            - name: CONFIG_SERVER_URL
+              valueFrom:
+                configMapKeyRef:
+                  key: config_uri
+                  name: hotel-service-cmap
+
+            - name: DB_HOST
+              valueFrom:
+                configMapKeyRef:
+                  key: hostName
+                  name: hotel-service-cmap 
+
+            - name: SPRING_REDIS_HOST
+              value: "redis"
+
+            - name: SPRING_REDIS_PORT
+              value: "6379"
+
+          # readinessProbe:
+          #   httpGet:
+          #     path: /actuator/health
+          #     port: 8080
+          #   initialDelaySeconds: 10
+          #   periodSeconds: 5
+
+---
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: hotel-service-cmap
+data:
+  config_uri: http://config-server-svc:9296
+  hostName: mysql-svc:3306
+
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: hotel-service-svc
+spec:
+  selector:
+    app: hotel-service
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080

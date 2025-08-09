@@ -49,6 +49,10 @@ public class BookingImpel implements BookingInterface {
 
     ObjectMapper objectMapper = new ObjectMapper();
 
+    @Value("${hotel.service.url}")
+    private String hotelURL;
+
+
     @Override
     @Transactional
     public BookingDto bookRoom(BookingDto bookingDto) {
@@ -57,8 +61,9 @@ public class BookingImpel implements BookingInterface {
         Booking booking = new Booking();
 
         HotelDto hotelDto;
+        //System.out.println(hotelURL+"/hotel/get-room/");
         try {
-            hotelDto = restTemplate.getForObject("http://HOTEL-SERVICE/hotel/get-room/" + bookingDto.room_id(), HotelDto.class);
+            hotelDto = restTemplate.getForObject(hotelURL+"/hotel/get-room/" + bookingDto.room_id(), HotelDto.class);
            } catch (Exception e) {
             throw new BookingException("No such Room found!...", false, HttpStatus.INTERNAL_SERVER_ERROR);
         }

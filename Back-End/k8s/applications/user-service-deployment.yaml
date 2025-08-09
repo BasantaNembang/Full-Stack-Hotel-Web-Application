@@ -1,0 +1,66 @@
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user-service
+spec:
+  selector:
+    matchLabels:
+      app: user-service
+  template:
+    metadata:
+      labels:
+        app: user-service
+    spec:
+      containers:
+      - name: user-service
+        image: basantanembang10/h-user-service:latest
+     
+        ports:
+        - containerPort: 8081
+
+        env:
+          - name: CONFIG_SERVER_URL
+            valueFrom:
+              configMapKeyRef:
+                key: config_uri
+                name: user-service-cmap
+
+          - name: DB_HOST
+            valueFrom:
+              configMapKeyRef:
+                key: hostName
+                name: user-service-cmap
+
+          - name: SPRING_REDIS_HOST
+            value: "redis"
+
+          - name: SPRING_REDIS_PORT
+            value: "6379"
+
+---
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: user-service-cmap
+data:
+  config_uri: http://config-server-svc:9296
+  hostName: mysql-svc:3306
+
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: user-service-svc
+spec:
+  selector:
+    app: user-service
+  ports:
+  - protocol: TCP
+    port: 8081
+    targetPort: 8081
+

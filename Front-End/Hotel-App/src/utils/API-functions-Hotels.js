@@ -28,10 +28,11 @@ export async function addRoom(sendData) {
    try {
     response  =  await Api.post("/add", sendData , {
         headers:{"Content-Type": "multipart/form-data"}});
-     } catch (error) { console.error(error)}
-    
-    //console.log(response)
-    if(response.status===202){
+     } catch (error) { 
+      console.log("error-------------->")
+      console.error(error)
+    }
+    if(response.status===200){
         return true;
     }else{
         return false;

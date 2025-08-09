@@ -3,7 +3,7 @@ import "./login.css"
 import { useForm } from 'react-hook-form';
 import { checkOTP, loginUser, sendOtpByEmail, updateForgotPassWord } from '../../utils/API-functions-Users';
 import { toast } from 'react-toastify';
-import { AuthContext } from '../../context/authContext';
+import { AuthContext } from '../../context/AuthContext';
 import Cookies from 'universal-cookie';
 
 

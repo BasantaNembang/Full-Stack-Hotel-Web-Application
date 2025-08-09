@@ -12,11 +12,12 @@ public class KafkaService {
     private AvaiableRoomImpel avaiableRoomImpel;
 
     @KafkaListener(topics = "inventory-event", groupId = "inventory-service")
-    public void deleteViaKafka(ConsumerRecord<String, com.booking.event.InventoryServiceEvent> record){
-      var event = record.value();
+    //public void deleteViaKafka(ConsumerRecord<String, com.booking.event.InventoryServiceEvent> record){
+    public void deleteViaKafka(com.booking.event.InventoryServiceEvent record){
+     // var event = record.value();
         //boolean bool =  avaiableRoomImpel.deleteBookings(String.valueOf(event.getBid()));
-        boolean bool =  avaiableRoomImpel.deleteBookings(event.getBid().toString());
-        System.out.println(event.getSubject()+"  "+bool);
+        boolean bool =  avaiableRoomImpel.deleteBookings(record.getBid().toString());
+        System.out.println(record.getSubject()+"  "+bool);
     }
 
 }

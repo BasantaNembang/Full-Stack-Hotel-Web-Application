@@ -1,7 +1,6 @@
 .manageRoomContainer {
   width: 100%;
   min-height: 30rem;
-  /* border: 1px solid; */
   margin-top: 2rem;
 }
 
@@ -23,12 +22,10 @@ td {
 .topSection .topSectionLeft {
   width: 30rem;
   height: 4rem;
-  /* border: 1px solid; */
 }
 .topSection .topSectionRight {
   width: 6rem;
   height: 3rem;
-  /* border: 1px solid; */
   font-size: 1.9rem;
   color: #4c82ff;
 }
