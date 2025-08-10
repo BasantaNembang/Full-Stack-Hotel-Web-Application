@@ -35,7 +35,7 @@ The technologies used in this project are:
 
 ## Application Glimpse
 
-add picture here
+![image_alt](https://github.com/BasantaNembang/Full-Stack-Hotel-Web-Application/blob/abc0a5af3df883e1b9ae72f4c5c05cca264862fa/homepage.png)
 
 
 
