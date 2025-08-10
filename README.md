@@ -1,6 +1,6 @@
 # Spring Boot Microservices(React JS)
 
-Complete Hotel-Web application where user can add and booked Room. 
+Complete Hotel-Web application where user can add and booked Room. Having a features of forgot password? and sending notification to your mail once`s you booked room using kafka.
 
 
 ##
