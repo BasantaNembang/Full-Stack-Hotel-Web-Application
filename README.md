@@ -37,6 +37,14 @@ The technologies used in this project are:
 
 ![image_alt](https://github.com/BasantaNembang/Full-Stack-Hotel-Web-Application/blob/abc0a5af3df883e1b9ae72f4c5c05cca264862fa/homepage.png)
 
+![image_alt](https://github.com/BasantaNembang/Full-Stack-Hotel-Web-Application/blob/b1d01ecd8cc05b5652c6246a636ea6ef5ec1da51/signup.png)
+
+![image_alt](https://github.com/BasantaNembang/Full-Stack-Hotel-Web-Application/blob/b1d01ecd8cc05b5652c6246a636ea6ef5ec1da51/allrooms.png)
+
+![image_alt](https://github.com/BasantaNembang/Full-Stack-Hotel-Web-Application/blob/b1d01ecd8cc05b5652c6246a636ea6ef5ec1da51/showbookings.png)
+
+![image_alt](https://github.com/BasantaNembang/Full-Stack-Hotel-Web-Application/blob/b1d01ecd8cc05b5652c6246a636ea6ef5ec1da51/showbookins.png)
+
 
 
 ##  How to run the services
